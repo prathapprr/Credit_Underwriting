@@ -15,38 +15,7 @@ This **Loan Eligibility Prediction App** is a machine learning-based web applica
 - **Pickle**: For saving and loading the trained model.
 - **CSS**: For styling the app and making it visually attractive.
 
-## Setup and Installation
 
-To run the app locally, follow these steps:
-
-1. Clone the repository to your local machine:
-
-    ```bash
-    git clone https://github.com/yourusername/loan-eligibility-prediction.git
-    cd loan-eligibility-prediction
-    ```
-
-2. Create a virtual environment (optional but recommended):
-
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # For Linux/Mac
-    venv\Scripts\activate  # For Windows
-    ```
-
-3. Install the required dependencies:
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-4. Run the Streamlit app:
-
-    ```bash
-    streamlit run app.py
-    ```
-
-5. Open the app in your browser at `http://localhost:8501`.
 
 ## Usage
 
@@ -91,12 +60,9 @@ If you'd like to contribute to this project:
 5. Push to the branch (`git push origin feature-branch`).
 6. Open a pull request.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
 For any questions or feedback, feel free to reach out at:
 - Email: prathapy150@gmail.com
-- GitHub: [your-github-username](https://github.com/prathapprr)
+- GitHub: https://github.com/prathapprr
