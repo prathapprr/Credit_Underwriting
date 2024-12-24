@@ -36,8 +36,8 @@ Setup
 Clone the repository:
 
 
-git clone https://github.com/Aayushipandey54/AI_Predictive_Models_for_Credit_Underwriting.git
-cd AI_Predictive_Models_for_Credit_Underwriting
+git clone https://github.com/prathapprr/Credit_Underwriting
+cd Credit_Underwriting
 Install dependencies:
 
 
