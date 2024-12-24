@@ -1,39 +1,17 @@
 import streamlit as st
 import pickle
 import numpy as np
+import pandas as pd
+import altair as alt
 
 # Load the pre-trained model
 model = pickle.load(open('model.pkl', 'rb'))
 
-# Horizontal Navigation Bar
-def navigation_bar():
-    st.markdown("""
-    <style>
-    .nav-bar {
-        display: flex;
-        justify-content: space-around;
-        background-color: #f8f9fa;
-        padding: 10px;
-        border-bottom: 2px solid #dee2e6;
-    }
-    .nav-bar a {
-        text-decoration: none;
-        color: #007bff;
-        font-size: 18px;
-        font-weight: bold;
-    }
-    .nav-bar a:hover {
-        text-decoration: underline;
-        color: #0056b3;
-    }
-    </style>
-    <div class="nav-bar">
-        <a href="#home">Home</a>
-        <a href="#prediction">Prediction</a>
-        <a href="#about-us">About Us</a>
-        <a href="#faqs">FAQs</a>
-    </div>
-    """, unsafe_allow_html=True)
+# Sidebar Navigation
+def sidebar_navigation():
+    st.sidebar.title("Navigation")
+    page = st.sidebar.radio("Go to", ["Home", "Prediction", "Dashboard", "Calculator", "About Us", "FAQs"])
+    return page
 
 # Home Page
 def home_page():
@@ -56,29 +34,7 @@ def home_page():
         - User guidance for improving approval chances.
         - Multiple language support (coming soon).
         """)
-    st.success("\U0001F4A1 Tip: Use the navigation bar above to explore!")
-
-# About Us Page
-def about_us_page():
-    st.title("\U0001F4DA About Us")
-    st.markdown("""
-    **Our Mission**: Simplify financial decision-making with advanced AI tools.
-
-    **About Me**: I am **Prathap**, an **AI Intern** at **Infosys Springboard**. During my internship, I focused on developing
-    this Loan Prediction System, working on data preprocessing, model training, and optimization.
-    """)
-    st.image("aout_dashboard_image.png", caption="Prathap", use_column_width=True)
-
-    with st.expander("\U0001F3D7 System Architecture"):
-        st.markdown("""
-        The Loan Prediction System comprises:
-        - **Frontend**: User-friendly interface built with Streamlit.
-        - **Backend**: Pre-trained machine learning model.
-        - **Prediction Engine**: Generates real-time results.
-        
-        Here's a visual representation:
-        """)
-        st.image("system_architecture.png", caption="System Architecture Diagram", use_column_width=True)
+    st.success("\U0001F4A1 Tip: Use the sidebar to navigate!")
 
 # Prediction Page
 def prediction_page():
@@ -131,28 +87,91 @@ def prediction_page():
             st.success("\U00002705 Loan Status: Approved")
             st.image("approved.png", caption="Loan Approved", use_column_width=True)
 
-# FAQ Page
+# Dashboard Page
+def dashboard_page():
+    st.title("\U0001F4CA Dashboard")
+    st.markdown("### Insights and Trends")
+
+    data = {
+        "Month": ["Jan", "Feb", "Mar", "Apr", "May"],
+        "Approvals": [30, 45, 50, 65, 70],
+        "Rejections": [20, 25, 30, 20, 15]
+    }
+    df = pd.DataFrame(data)
+
+    chart = alt.Chart(df).mark_bar().encode(
+        x=alt.X("Month", sort=None),
+        y=alt.Y("Approvals", title="Loan Approvals"),
+        color=alt.Color("Month", legend=None)
+    ).properties(
+        title="Monthly Loan Approvals"
+    )
+
+    st.altair_chart(chart, use_container_width=True)
+
+# Loan Calculator Page
+def calculator_page():
+    st.title("\U0001F4B8 Loan EMI Calculator")
+    st.markdown("### Calculate your loan repayment schedule")
+
+    principal = st.number_input("Loan Amount", min_value=1000, step=1000, help="Enter the loan amount")
+    interest_rate = st.number_input("Interest Rate (%)", min_value=0.1, step=0.1, help="Annual interest rate")
+    tenure_years = st.number_input("Loan Tenure (Years)", min_value=1, step=1, help="Duration of the loan in years")
+
+    if st.button("Calculate EMI"):
+        r = (interest_rate / 100) / 12
+        n = tenure_years * 12
+        emi = (principal * r * (1 + r) ** n) / ((1 + r) ** n - 1)
+        st.success(f"Your monthly EMI is: \u20B9{emi:.2f}")
+
+# About Us Page
+def about_us_page():
+    st.title("\U0001F465 About Us")
+    st.markdown("""
+    Welcome to the Loan Prediction System developed during my AI internship at Infosys Springboard.
+
+    **Developer:** Prathap  
+    **Contact:** [Email](mailto:prathapy150gmail.com) | [LinkedIn](https://github.com/prathapprr)
+
+    This system was built using:
+    - Python and Streamlit for the frontend
+    - Machine learning model for predictions
+    - Visualization tools like Altair and Pandas for data analysis
+    """)
+    st.image("about_dashboard_image.png", caption="Loan Prediction System", use_column_width=True)
+
+# FAQs Page
 def faq_page():
     st.title("\U0001F4AC FAQs")
-    with st.expander("What factors affect loan approval?"):
-        st.write("Factors like credit history, income, loan amount, and dependents play a major role.")
-    with st.expander("How accurate is the prediction?"):
-        st.write("The model is trained on historical data and has an accuracy of 85%.")
-    with st.expander("Can I improve my chances?"):
-        st.write("Yes, by improving your credit score and reducing debt.")
+    st.markdown("""
+    **1. How does the system work?**  
+    - It uses a pre-trained machine learning model to predict loan approval.
+
+    **2. What data is needed for prediction?**  
+    - User details like income, loan amount, credit history, etc.
+
+    **3. How accurate is the prediction?**  
+    - The system is trained on real-world data with high accuracy.
+
+    For more queries, contact us via [Email](mailto:prathapy150gmail.com).
+    """)
 
 # Main Function
 def main():
-    navigation_bar()
-    page = st.selectbox("Select Page", ["Home", "Prediction", "About Us", "FAQs"], key="page_selector", label_visibility="collapsed")
+    page = sidebar_navigation()
 
     if page == "Home":
         home_page()
     elif page == "Prediction":
         prediction_page()
+    elif page == "Dashboard":
+        dashboard_page()
+    elif page == "Calculator":
+        calculator_page()
     elif page == "About Us":
         about_us_page()
     elif page == "FAQs":
         faq_page()
 
-main()
+if __name__ == "__main__":
+    main()
