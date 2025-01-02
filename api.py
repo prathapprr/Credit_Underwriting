@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 
 # Load the pre-trained model
-model = pickle.load(open('C:\Users\hp\Credit Underwriting 3\model.pkl', 'rb'))
+model = pickle.load(open('model.pkl', 'rb'))
 
 # Initialize Flask app
 app = Flask(__name__)

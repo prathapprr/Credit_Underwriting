@@ -131,7 +131,7 @@ def about_us_page():
     Welcome to the Loan Prediction System developed during my AI internship at Infosys Springboard.
 
     **Developer:** Prathap  
-    **Contact:** [Email](mailto:prathapy150gmail.com) | [LinkedIn](https://github.com/prathapprr)
+    **Contact:** [Email](mailto:prathapy150gmail.com) | [LinkedIn](https://www.linkedin.com/in/prathap-r-2192442a3/)
 
     This system was built using:
     - Python and Streamlit for the frontend
