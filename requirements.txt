@@ -4,4 +4,7 @@ numpy==1.24.1
 altair==4.2.0
 joblib==1.2.0
 scikit-learn==1.2.0
-google-generativeai==0.1.1
+google-generativeai==0.8.3
+
+
+
