@@ -86,10 +86,6 @@ def prediction_page():
         else:
             st.success("\U00002705 Loan Status: Approved")
             st.image("approved.png", caption="Loan Approved", use_column_width=True)
-            
-     # Reset button that triggers rerun
-    if st.button("Reset Inputs"):
-        st.experimental_rerun()
 
 # Dashboard Page
 def dashboard_page():

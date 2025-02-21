@@ -12,25 +12,6 @@ This project builds a predictive model using machine learning to estimate the pr
 - **Real-time API Integration**: Expose the model via an API for seamless integration with other applications.
 - **Interactive Chatbot**: Allow users to interact with the model and get loan predictions through a conversational interface.
 
-## 🏗 Project Structure
-The project is structured as follows to ensure clarity and ease of use:
-prathapprr-Credit_Underwriting/
-├── README.md                 # Project documentation
-├── LICENSE                   # License information
-├── Model Building.ipynb      # Notebook for model building and exploration
-├── api.py                    # API script for predictions
-├── app.py                    # Web application script
-├── chatbot.py                # Chatbot interface for querying the model
-├── loan-test.csv             # Test dataset for evaluation
-├── loan-train.csv            # Training dataset for the model
-├── model.pkl                 # Serialized trained model for deployment
-├── requirements.txt          # List of dependencies
-├── Agile Documentation/      # Agile project management documentation
-│   └── PRATHAP_Agile_Documentation.xlsm  # Agile project documentation file
-└── .ipynb_checkpoints/       # Jupyter notebook checkpoints
-    ├── LICENSE-checkpoint
-    └── Model Building-checkpoint.ipynb
-
 ## 🌟 Key Features
 1. **Machine Learning Model** 🤖  
    - The model is trained using historical loan data to predict the likelihood of loan defaults.  

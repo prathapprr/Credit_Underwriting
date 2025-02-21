@@ -1,6 +1,10 @@
-streamlit==1.17.0
+streamlit>=1.22.0
 pandas==1.5.3
-numpy==1.23.3
+numpy>=1.24.1
 altair==4.2.0
 joblib==1.2.0
-scikit-learn==1.6.0
+scikit-learn==1.2.0
+google-generativeai==0.8.3
+
+
+
