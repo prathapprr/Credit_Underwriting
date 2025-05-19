@@ -1,11 +1,11 @@
 import streamlit as st
-import pickle
+import joblib
 import numpy as np
 import pandas as pd
 import altair as alt
 
 # Load the pre-trained model
-model = pickle.load(open('model.pkl', 'rb'))
+model = joblib.load('model.pkl')
 
 # Sidebar Navigation
 def sidebar_navigation():
