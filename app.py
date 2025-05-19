@@ -125,20 +125,141 @@ def calculator_page():
         st.success(f"Your monthly EMI is: \u20B9{emi:.2f}")
 
 # About Us Page
+# About Us Page
+
+import streamlit as st
+import base64
+def load_image_base64(image_path):
+    with open(image_path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode()
+
 def about_us_page():
-    st.title("\U0001F465 About Us")
+    st.title("👥 Meet the Team")
+
     st.markdown("""
-    Welcome to the Loan Prediction System developed during my AI internship at Infosys Springboard.
+        <style>
+            .intro {
+                text-align: center;
+                font-size: 18px;
+                color: white;
+                margin-bottom: 30px;
+                line-height: 1.6;
+            }
 
-    **Developer:** Prathap  
-    **Contact:** [Email](mailto:prathapy150gmail.com) | [LinkedIn](https://www.linkedin.com/in/prathap-r-2192442a3/)
+            .profile-card {
+                background: #f9f9f9;
+                border-radius: 20px;
+                padding: 20px;
+                text-align: center;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                animation: fadeIn 1.2s ease;
+            }
 
-    This system was built using:
-    - Python and Streamlit for the frontend
-    - Machine learning model for predictions
-    - Visualization tools like Altair and Pandas for data analysis
-    """)
-    st.image("about_dashboard_image.png", caption="Loan Prediction System", use_column_width=True)
+            .profile-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            }
+
+            .profile-img {
+                width: 100%;
+                border-radius: 15px;
+                transition: transform 0.3s ease-in-out;
+                border: 3px solid #eee;
+            }
+
+            .profile-card:hover .profile-img {
+                transform: scale(1.05);
+                border-color: #00bcd4;
+            }
+
+            .profile-name {
+                font-size: 22px;
+                margin-top: 10px;
+                color: #222;
+                font-weight: bold;
+            }
+
+            .profile-role {
+                font-size: 15px;
+                color: #555;
+                margin-bottom: 10px;
+            }
+
+            .profile-links a {
+                text-decoration: none;
+                color: #0077b6;
+                font-weight: bold;
+                margin: 0 6px;
+            }
+
+            .profile-links a:hover {
+                color: #ff4081;
+            }
+
+            @keyframes fadeIn {
+                0% { opacity: 0; transform: translateY(20px); }
+                100% { opacity: 1; transform: translateY(0); }
+            }
+        </style>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+        <div class="intro">
+                    🚀 We are a passionate team of developers from <b>Dayananda Sagar Academy of Technology and Management</b>.<br>
+        This project <b>"AI-Powered Loan Prediction System"</b> helps banks & financial institutions make smarter decisions using machine learning.<br>
+        We're learning, building, and having fun along the way! ✨
+
+        </div>
+    """, unsafe_allow_html=True)
+
+    # Columns
+    col1, col2, col3 = st.columns(3)
+
+    # Load base64 images
+    prathap_img = load_image_base64("prathap.png.jpg")
+    varun_img = load_image_base64("Varun.png.jpg")
+    mahesh_img = load_image_base64("Mahesh.png.jpg")
+
+    with col1:
+        st.markdown(f"""
+        <div class="profile-card">
+            <img class="profile-img" src="data:image/jpeg;base64,{prathap_img}" />
+            <div class="profile-name">Prathap</div>
+            <div class="profile-role">AI & ML Developer<br>Intern @ Infosys</div>
+            <div class="profile-links">
+                <a href="mailto:prathapy150@gmail.com">📧 Email</a> |
+                <a href="https://www.linkedin.com/in/prathap-r-2192442a3/">🔗 LinkedIn</a>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col2:
+        st.markdown(f"""
+        <div class="profile-card">
+            <img class="profile-img" src="data:image/jpeg;base64,{varun_img}" />
+            <div class="profile-name">Varun</div>
+            <div class="profile-role">Backend Developer<br>APIs & Databases</div>
+            <div class="profile-links">
+                <a href="varunc3926@gmail.com">📧 Email</a> |
+                <a href="https://www.linkedin.com/in/varun-c-89b4a8333/">🔗 LinkedIn</a>
+                <a href="mailto:varunc3926@gmail.com">📧 Email</a> |
+                <a href="https://www.linkedin.com/in/varun-c-89b4a8333/">🔗 LinkedIn</a>
+        """, unsafe_allow_html=True)
+
+    with col3:
+        st.markdown(f"""
+        <div class="profile-card">
+            <img class="profile-img" src="data:image/jpeg;base64,{mahesh_img}" />
+            <div class="profile-name">Mahesh S</div>
+            <div class="profile-role">Frontend Dev<br>UI/UX & Streamlit Magic</div>
+            <div class="profile-links">
+                <a href="maheshgowdamahi1439@gmail.com">📧 Email</a> |
+                <a href="https://www.linkedin.com/in/mahesh-s-655903339/">🔗 LinkedIn</a>
+                <a href="mailto:maheshgowdamahi1439@gmail.com">📧 Email</a> |
+                <a href="https://www.linkedin.com/in/mahesh-s-655903339/">🔗 LinkedIn</a>
+        """, unsafe_allow_html=True)
+
 
 # FAQs Page
 def faq_page():
