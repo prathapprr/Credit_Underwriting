@@ -217,7 +217,7 @@ def about_us_page():
     col1, col2, col3 = st.columns(3)
 
     # Load base64 images
-    prathap_img = load_image_base64("prathap.png.jpg")
+    prathap_img = load_image_base64("Prathap.png.jpg")
     varun_img = load_image_base64("Varun.png.jpg")
     mahesh_img = load_image_base64("Mahesh.png.jpg")
 
@@ -243,8 +243,7 @@ def about_us_page():
             <div class="profile-links">
                 <a href="varunc3926@gmail.com">📧 Email</a> |
                 <a href="https://www.linkedin.com/in/varun-c-89b4a8333/">🔗 LinkedIn</a>
-                <a href="mailto:varunc3926@gmail.com">📧 Email</a> |
-                <a href="https://www.linkedin.com/in/varun-c-89b4a8333/">🔗 LinkedIn</a>
+               
         """, unsafe_allow_html=True)
 
     with col3:
@@ -256,8 +255,7 @@ def about_us_page():
             <div class="profile-links">
                 <a href="maheshgowdamahi1439@gmail.com">📧 Email</a> |
                 <a href="https://www.linkedin.com/in/mahesh-s-655903339/">🔗 LinkedIn</a>
-                <a href="mailto:maheshgowdamahi1439@gmail.com">📧 Email</a> |
-                <a href="https://www.linkedin.com/in/mahesh-s-655903339/">🔗 LinkedIn</a>
+                
         """, unsafe_allow_html=True)
 
 
