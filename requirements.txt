@@ -5,6 +5,7 @@ altair==4.2.0
 joblib==1.2.0
 scikit-learn==1.2.0
 google-generativeai==0.8.3
-
-
-
+flask>=2.0.0
+seaborn>=0.12.0
+matplotlib>=3.5.0
+pickle-mixin>=1.0.2
