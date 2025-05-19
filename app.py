@@ -141,7 +141,7 @@ def about_us_page():
             .intro {
                 text-align: center;
                 font-size: 18px;
-                color: white;
+                color: navy;
                 margin-bottom: 30px;
                 line-height: 1.6;
             }
